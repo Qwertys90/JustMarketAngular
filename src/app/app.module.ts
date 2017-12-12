@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material';
 import { HomepageComponent } from './homepage/homepage.component';
+import {Ng2CarouselamosModule} from 'ng2-carouselamos';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    Ng2CarouselamosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
