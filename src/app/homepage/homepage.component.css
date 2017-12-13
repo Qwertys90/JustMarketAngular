@@ -8,9 +8,9 @@
   padding: 5px;
 }
 
-.grad{
-  margin:0;
-  padding:0;
+.grad {
+  margin: 0;
+  padding: 0;
   height: 100%;
   background: repeating-linear-gradient(
     90deg,
@@ -21,28 +21,35 @@
   );
 }
 
-.infoJumbo{
-  line-height:500px;
+.infoJumbo {
+  line-height: 500px;
 
 }
 
-.testoJumbo{
-
+.testoJumbo {
+  width:100%;
+  font-size: 40px;
+  font-weight: 800;
 }
 
-.pulsJumbo{
+.pulsJumbo {
+  position: absolute;
+  top: 50%;
+  width:250px;
+  margin-left: -125px;
   background-color: #8F0808;
-  padding:5px 20px 5px 20px;
+  padding: 5px 20px 5px 20px;
   border-radius: 5px;
   -webkit-transition: all 0.1s linear;
   transition: all 0.25s linear;
+  left:50%;
 }
 
-.pulsJumbo:hover{
+.pulsJumbo:hover {
   -webkit-transition: all 0.1s linear;
   transition: all 0.25s linear;
   background-color: #FFF;
-  color:#000;
+  color: #000;
   cursor: pointer;
 }
 
@@ -60,7 +67,7 @@
   text-align: center;
   font-size: 25px;
   color: rgb(255, 255, 255);
-  height:500px;
+  height: 500px;
 }
 
 .offersIcons {
