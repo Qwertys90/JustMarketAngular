@@ -34,7 +34,7 @@ import {ProductService} from './service/product.service';
     MatIconModule,
     Ng2CarouselamosModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     LoginService,
