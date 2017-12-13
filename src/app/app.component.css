@@ -20,6 +20,7 @@
   top:120px;
   height:45px;
   background-color: #fff;
+  border-bottom: 1px solid #cf1717;
 }
 
 .headerTop2{
@@ -43,6 +44,7 @@
   width: 100%;
   height:45px;
   background-color: #fff;
+  border-bottom: 1px solid #cf1717;
 }
 
 .logo{
@@ -61,8 +63,9 @@
 }
 
 .rigo1:hover{
-  background-color: #586067;
+  background-color: #cf1717 !important;
 }
+
 
 .rigo1 > span{
   line-height: 30px;
@@ -71,6 +74,7 @@
   color:#fff;
   margin:0;
   padding: 0 5px;
+
 }
 
 .rigo2{
@@ -232,11 +236,26 @@
   margin:0;
   padding: 0 5px;
   font-size: 27px;
-
 }
 
 .rigo3 > span:hover{
   text-decoration: underline;
+}
+
+.rigo3space{
+  z-index: 10000;
+  margin:0;
+  padding: 0;
+}
+
+.rigo3space > span{
+  line-height: 45px;
+  font-family: sans-serif;
+  vertical-align: middle;
+  color:#000;
+  margin:0;
+  padding: 0 5px;
+  font-size: 27px;
 }
 
 .main{
