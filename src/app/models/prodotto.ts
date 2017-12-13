@@ -6,6 +6,7 @@ export class Prodotto{
   descrizione?: string;
   dataScadenza: string;
   quantita: number;
+  unita: number;
   quantitaDaAcquistare: number;
   prezzoUnitario: number;
   offerta: boolean;

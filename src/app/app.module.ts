@@ -13,9 +13,10 @@ import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './/app-routing.module';
 import {SharedService} from "./service/shared.service";
 import {InterceptorService} from "./service/interceptor.service";
-import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {LoginService} from "./service/login.service";
 import { ProductComponent } from './product/product.component';
+import {ProductService} from './service/product.service';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ProductComponent } from './product/product.component';
     FormsModule,
     MatIconModule,
     Ng2CarouselamosModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     LoginService,
@@ -42,7 +44,8 @@ import { ProductComponent } from './product/product.component';
       multi: true,
     },
     AuthGuard,
-    SharedService
+    SharedService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })

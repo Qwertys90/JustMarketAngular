@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ProductService} from '../service/product.service';
+import {Prodotto} from '../models/prodotto';
 
 @Component({
   selector: 'app-homepage',
@@ -6,29 +8,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  items: Array<any> = []
+  listProd: Array<Prodotto> = [];
+  listOffers: Array<Prodotto> = [];
 
-  constructor() {
-    this.items = [
-      { name: 'Jose' },
-      { name: 'Alice' },
-      { name: 'Bob' },
-      { name: 'Bob' },
-      { name: 'Bob' },
-      { name: 'Bob' },
-      { name: 'Bob' },
-      { name: 'Bob' },
-      { name: 'Bob' },
-      { name: 'Bob' },
-      { name: 'Bob' },
-      { name: 'Bob' },
-      { name: 'Bob' },
-      { name: 'Bob' },
-    ];
-
+  constructor(private prodServ: ProductService) {
+    this.getAll();
   }
 
   ngOnInit() {
+  }
+
+  // getall() {
+  //   this.prodServ.getAll().subscribe(d => {
+  //     this.listProd = d;
+  //     console.log(this.listProd);
+  //   });
+  // }
+
+  getAll() {
+    this.prodServ.getAll().subscribe(d => {
+      this.listProd = d;
+      this.listOffers = this.listProd.filter(prod => prod.offerta===true ).slice(0,6);
+      console.log(this.listOffers);
+
+    });
   }
 
 }
