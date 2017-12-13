@@ -1,24 +1,93 @@
 <div>
-  <div>
-    <div
-      ng2-carouselamos
-      class="slides-wrapper"
-      [items]="items"
-      [width]="590"
-      [$prev]="prev"
-      [$next]="next"
-      [$item]="item"
-    >
-    </div>
+  <div class="row">
+  <div style="width: 100%; height: 25px; border-bottom: 2px solid black; text-align: center">
+  <span style="font-size: 30px; background-color: #fff; padding: 0 0px;">
+    Special Offers <!--Padding is optional-->
+  </span>
   </div>
-  <ng-template #prev>
-    <img src="assets/images/icon_leftarrow.png" />
-  </ng-template>
-  <ng-template #next>
-    <img src="assets/images/icon_rightarrow.png" />
-  </ng-template>
-  <ng-template #item let-item let-i="index">
-    <p>Name: {{item.name}}</p>
-    <p>Index: {{i}}</p>
-  </ng-template>
+  </div>
+  <div class="row offers">
+    <!--item1-->
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 offersItem">
+      <div class="offersCont col-lg-12">
+      <div class="offersIcons">
+      <img src="https://www.lidl.it/catalog3media/it/article/82904/third/sm/82904_00.jpg" style="width: auto !important; height: auto !important;
+  max-width: 100%;">
+      </div>
+      <div class="row infoCont">
+        <span class="iteminfo">Prezzo Unitario: 5.99 €</span><br>
+        <span class="iteminfo">Disponibilità: 5.5kg</span><br>
+        <span class="iteminfo">offerta - 20%</span>
+        <span class="offertaWrap">prova</span>
+        <span class="terminato">TERMINATO</span>
+      </div>
+      </div>
+        <div class="ribbon"><span>OFFERTA!</span></div>
+
+    </div>
+
+    <!--item1-->
+
+
+    <!--fill-->
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 offersItem">
+      <div class="offersCont">
+
+      <div class="offersIcons">
+        <img src="https://www.lidl.it/catalog3media/it/article/82690/third/sm/82690_00.jpg" style="width: auto !important; height: auto !important;
+  max-width: 100%;">
+      </div>
+      <div class="row infoCont">
+        <span class="iteminfo">Prezzo Unitario: 5.99 €</span><br>
+        <span class="iteminfo">Disponibilità: 5.5kg</span><br>
+        <span class="iteminfo">offerta - 20%</span>
+        <span class="offertaWrap">prova</span>
+        <span class="disponibile"></span>
+      </div>
+      </div>
+      <div class="ribbon"><span>OFFERTA!</span></div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 offersItem">
+      <div class="offersCont">
+
+      <div class="offersIcons">
+      <img src="https://www.lidl.it/catalog3media/it/article/82410/third/sm/82410_00.jpg" style="width: auto !important; height: auto !important;
+  max-width: 100%;">
+    </div>
+    <div class="row infoCont">
+      <span class="iteminfo">Prezzo Unitario: 5.99 €</span><br>
+      <span class="iteminfo">Disponibilità: 5.5kg</span><br>
+      <span class="iteminfo">offerta - 20%</span>
+      <span class="offertaWrap">prova</span>
+    </div></div>
+  </div>    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 offersItem">
+      <div class="offersCont">
+
+      <div class="offersIcons">
+      <img src="https://www.lidl.it/catalog3media/it/article/80088/third/sm/80088_00.jpg" style="width: auto !important; height: auto !important;
+  max-width: 100%;">
+    </div>
+    <div class="row infoCont">
+      <span class="iteminfo">Prezzo Unitario: 5.99 €</span><br>
+      <span class="iteminfo">Disponibilità: 5.5kg</span><br>
+      <span class="iteminfo">offerta - 20%</span>
+      <span class="offertaWrap">prova</span>
+    </div></div>
+  </div>    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 offersItem">
+      <div class="offersCont">
+
+      <div class="offersIcons">
+      <img src="https://www.lidl.it/catalog3media/it/article/2576/third/sm/2576_05.jpg" style="width: auto !important; height: auto !important;
+  max-width: 100%;">
+    </div>
+    <div class="row infoCont">
+      <span class="iteminfo">Prezzo Unitario: 5.99 €</span><br>
+      <span class="iteminfo">Disponibilità: 5.5kg</span><br>
+      <span class="iteminfo">offerta - 20%</span>
+      <span class="offertaWrap">prova</span>
+    </div>
+      </div></div>
+    <!--fill-->
+  </div>
 </div>
+

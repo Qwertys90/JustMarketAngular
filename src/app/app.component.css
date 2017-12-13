@@ -150,7 +150,7 @@
 .logo{
   position: relative;
   float: left;
-  top:9px;
+  top:20px;
   left:9px;
   z-index: 100000;
 }
