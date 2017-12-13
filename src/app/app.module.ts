@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {AuthGuard} from "./auth-guard.service";
+import {AuthGuard} from "./service/auth-guard.service";
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
@@ -11,10 +11,10 @@ import {Ng2CarouselamosModule} from 'ng2-carouselamos';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './/app-routing.module';
-import {SharedService} from "./shared.service";
-import {InterceptorService} from "./interceptor.service";
+import {SharedService} from "./service/shared.service";
+import {InterceptorService} from "./service/interceptor.service";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
-import {LoginService} from "./login.service";
+import {LoginService} from "./service/login.service";
 import { ProductComponent } from './product/product.component';
 
 
