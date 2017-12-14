@@ -15,7 +15,6 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  color = 'accent';
   checked = false;
   disabled = false;
 
