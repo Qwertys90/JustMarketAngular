@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../service/product.service';
 import {Prodotto} from '../models/prodotto';
+import {PageScrollConfig} from 'ng2-page-scroll';
 
 @Component({
   selector: 'app-homepage',
@@ -13,6 +14,7 @@ export class HomepageComponent implements OnInit {
 
   constructor(private prodServ: ProductService) {
     this.getAll();
+    PageScrollConfig.defaultDuration=500;
   }
 
   ngOnInit() {

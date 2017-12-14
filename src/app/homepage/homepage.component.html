@@ -2,20 +2,20 @@
   <div class="jumbotron jumbo hidden-sm hidden-xs">
     <div class="container grad">
 
-    <div class="textJumbo">
-      <span class="testoJumbo">La spesa rapidamente a casa tua</span>
-      <span class="pulsJumbo" routerLink="/product">Acquista</span>
+      <div class="textJumbo">
+        <span class="testoJumbo">La spesa rapidamente a casa tua</span>
+        <span class="pulsJumbo" pageScroll href="#offers">Acquista</span>
+      </div>
     </div>
   </div>
-  </div>
   <div class="row" style="margin-top: 10px">
-  <div style="width: 100%; height: 25px; border-bottom: 2px solid #cf1717; text-align: center">
+    <div style="width: 100%; height: 25px; border-bottom: 2px solid #cf1717; text-align: center">
   <span style="font-size: 30px; background-color: #fff; padding: 0 0px;">
     Special Offers <!--Padding is optional-->
   </span>
+    </div>
   </div>
-  </div>
-  <div class="row offers">
+  <div class="row offers" id="offers">
     <!--item from server-->
     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 offersItem" *ngFor="let prod of listOffers">
       <div class="offersCont col-lg-12">
@@ -39,7 +39,22 @@
 
     <!--item from server-->
 
-
   </div>
-</div>
+  <div class="row" style="margin-top: 10px" id="categorie">
+    <div style="width: 100%; height: 25px; border-bottom: 2px solid #cf1717; text-align: center">
+  <span style="font-size: 30px; background-color: #fff; padding: 0 0px;">
+    Categorie <!--Padding is optional-->
+  </span>
+    </div>
+  </div>
+  <div>prova</div>
 
+  <div class="row" style="margin-top: 10px" id="diconodinoi">
+    <div style="width: 100%; height: 25px; border-bottom: 2px solid #cf1717; text-align: center">
+  <span style="font-size: 30px; background-color: #fff; padding: 0 0px;">
+    Dicono di noi <!--Padding is optional-->
+  </span>
+    </div>
+  </div>
+  <div>prova</div>
+</div>

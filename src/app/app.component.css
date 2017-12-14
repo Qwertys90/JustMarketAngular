@@ -43,6 +43,7 @@
   background-color: #fff;
 }
 
+
 .headerBot2{
   position: relative;
   float:left;
@@ -50,6 +51,7 @@
   height:45px;
   background-color: #fff;
   border-bottom: 1px solid #cf1717;
+  z-index: 3;
 }
 
 .logo{
