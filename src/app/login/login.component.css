@@ -39,9 +39,11 @@
 }
 .form-signin .form-control {
   position: relative;
+  width: 83%;
+  margin: 15px auto;
   font-size: 16px;
-  height: 20px;
-  padding: 20px;
+  height: 40px;
+  padding-left: 20px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -50,6 +52,8 @@
   z-index: 2;
 }
 .form-signin input[type="text"] {
+  color: black!important;
+  z-index: 10000000000;
   margin-bottom: 10px;
   border-radius: 5px;
 
