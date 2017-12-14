@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {LoginService} from "../service/login.service";
 import {Router} from "@angular/router";
 import {SharedService} from "../service/shared.service";
-import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-login',
