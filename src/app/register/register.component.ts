@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import {LoginService} from "../service/login.service";
 import {Router} from "@angular/router";
+import {User} from "../models/user";
+import swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-register',
@@ -9,16 +12,23 @@ import {Router} from "@angular/router";
 })
 export class RegisterComponent {
 
-  user = {username: '', password: '', profileType: 'ROLE_USER'};
+  user = new User();
 
   constructor(private loginService: LoginService, private router: Router) { }
 
+
   register() {
+    this.user.tipo='NORMALE';
     this.loginService.register(this.user).subscribe(data => {
       console.log(data);
-        this.router.navigate(['login']);
+      this.router.navigate(['login']);
     }, err => {
       console.log(err);
+      swal(
+        'Oops...',
+        'Username già in uso',
+        'error'
+      )
     })
   }
 

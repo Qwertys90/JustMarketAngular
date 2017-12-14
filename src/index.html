@@ -3,14 +3,20 @@
 <head>
   <meta charset="utf-8">
   <title>JustMarket</title>
-  <base href="/">
+  <script src="bower_components/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root></app-root>
+<app-root></app-root>
 </body>
 </html>

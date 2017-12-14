@@ -9,4 +9,5 @@ export class User{
   cognome: string;
   username: string;
   password: string;
+  tipo:string;
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {LoginService} from "./service/login.service";
 import {Router} from "@angular/router";
 import {SharedService} from "./service/shared.service";
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -42,6 +43,11 @@ export class AppComponent {
       console.log('logged out.')
       localStorage.removeItem('user');
       localStorage.removeItem('token');
+      swal(
+        'Torna a trovarci!',
+        'Log-out eseguito con successo.',
+        'success'
+      );
       this.logged = false;
     }, err => {
       console.log(err)
