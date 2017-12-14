@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LoginService} from "../service/login.service";
 import {Router} from "@angular/router";
 import {SharedService} from "../service/shared.service";
@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
   user = {username: '', password: ''};
 
   constructor(private loginService: LoginService, private router: Router,
-              private _sharedService: SharedService) { }
+              private _sharedService: SharedService) {
+  }
 
   ngOnInit() {
   }
@@ -28,18 +29,26 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(data));
       localStorage.setItem('token', btoa(this.user.username + ':' + this.user.password));
       this._sharedService.emitChange('logged=true');
-      this.router.navigate(['homepage'], { replaceUrl: true });
-      this.loginService.dettagli().subscribe(d=> {
-          this.usere = <User> d,
-            swal({
-              title: 'Benvenuto ' + this.usere.nome,
-              type: 'success'
-            });
-        }
-      );
-
+      this.router.navigate(['homepage'], {replaceUrl: true});
+      this.loginService.dettagli().subscribe(d => {
+        this.usere = <User> d,
+          swal({
+            title: 'Benvenuto ' + this.usere.nome,
+            type: 'success',
+            showConfirmButton: false,
+            timer: 1000,
+            onOpen: () => {
+              swal.showLoading()
+            }
+          });
+      });
     }, err => {
       console.log(err);
+      swal(
+        'Oops...',
+        'Username o Password errati',
+        'error'
+      )
     })
   }
 

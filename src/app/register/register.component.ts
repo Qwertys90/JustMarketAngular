@@ -16,7 +16,6 @@ export class RegisterComponent {
 
   constructor(private loginService: LoginService, private router: Router) { }
 
-
   register() {
     this.user.tipo='NORMALE';
     this.loginService.register(this.user).subscribe(data => {

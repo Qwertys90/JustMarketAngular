@@ -12,7 +12,6 @@ import {User} from "./models/user";
 })
 export class AppComponent {
 
-  usere = new User();
   logged = false;
 
   constructor(private loginService: LoginService, private router: Router, private _sharedService: SharedService) {
@@ -45,15 +44,16 @@ export class AppComponent {
       console.log('logged out.')
       localStorage.removeItem('user');
       localStorage.removeItem('token');
-      this.loginService.dettagli().subscribe(d=> {
-          this.usere = <User> d,
-            swal({
-              title: 'Torna a trovarci presto ' + this.usere.nome,
-              text: 'Log-out eseguito',
-              type: 'success'
-            });
+      swal({
+        title:'Torna a trovarci!',
+        text:'Log-out...',
+        type:'info',
+        showConfirmButton: false,
+        timer: 1500,
+        onOpen: () => {
+          swal.showLoading()
         }
-      );
+      });
       this.logged = false;
     }, err => {
       console.log(err)
