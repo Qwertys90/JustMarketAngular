@@ -3,7 +3,6 @@ import {LoginService} from "./service/login.service";
 import {Router} from "@angular/router";
 import {SharedService} from "./service/shared.service";
 import swal from 'sweetalert2';
-import {User} from "./models/user";
 
 @Component({
   selector: 'app-root',
