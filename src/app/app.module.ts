@@ -5,7 +5,7 @@ import {AuthGuard} from "./service/auth-guard.service";
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
-import {MatIconModule} from '@angular/material';
+import {MatCardModule, MatCheckboxModule, MatIconModule, MatRadioModule, MatSlideToggleModule} from '@angular/material';
 import { HomepageComponent } from './homepage/homepage.component';
 import {Ng2CarouselamosModule} from 'ng2-carouselamos';
 import { LoginComponent } from './login/login.component';
@@ -28,6 +28,7 @@ import {ProductService} from './service/product.service';
     ProductComponent
   ],
   imports: [
+    MatSlideToggleModule,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
@@ -35,6 +36,9 @@ import {ProductService} from './service/product.service';
     Ng2CarouselamosModule,
     AppRoutingModule,
     HttpClientModule,
+    MatCardModule,
+    MatRadioModule,
+    MatCheckboxModule
   ],
   providers: [
     LoginService,
