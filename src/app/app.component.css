@@ -272,3 +272,25 @@
   margin:0;
   padding:0;
 }
+
+.footer-section {
+  background: #8F0808;
+  padding: 5em 0;
+
+}
+
+.footer-column h4 {
+  font-size: 2em;
+  color: #fff;
+  margin-bottom: .5em;
+}
+.footer-column p {
+  font-size: .96em;
+  color: #eee;
+  line-height: 1.8em;
+}
+.footer-column ul, li, a {
+  font-size: .96em;
+  color: #eee;
+  line-height: 1.8em;
+}
