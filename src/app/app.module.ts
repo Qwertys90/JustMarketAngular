@@ -17,6 +17,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {LoginService} from "./service/login.service";
 import { ProductComponent } from './product/product.component';
 import {ProductService} from './service/product.service';
+import {NouisliderModule} from 'ng2-nouislider';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {ProductService} from './service/product.service';
     HttpClientModule,
     MatCardModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    NouisliderModule
   ],
   providers: [
     LoginService,
