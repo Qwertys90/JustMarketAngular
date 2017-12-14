@@ -17,7 +17,7 @@ export class ProductComponent implements OnInit {
 
   checked = false;
   disabled = false;
-
+  someRange: [ 3, 7 ]
   getAll() {
     this.prodServ.getAll().subscribe(d => {
       this.listProdTotale = d;
