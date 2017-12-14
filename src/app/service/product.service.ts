@@ -7,8 +7,8 @@ export class ProductService {
 
   constructor(private http:HttpClient) { }
 
-getAll(){
+ getAll(){
     return this.http.get<Array<any>>(BACKEND_URL + '/prodotti/getall')
-}
+ }
 
 }

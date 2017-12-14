@@ -22,7 +22,7 @@ export class AppComponent {
         localStorage.setItem('user', JSON.stringify(data));
         localStorage.setItem('token', btoa(user.username + ':' + user.password));
         this.logged = true;
-        this.router.navigate(['product']);
+        this.router.navigate(['homepage']);
       }, err => {
         console.error(err);
         localStorage.removeItem('user');
@@ -42,7 +42,6 @@ export class AppComponent {
       console.log('logged out.')
       localStorage.removeItem('user');
       localStorage.removeItem('token');
-      this.router.navigate(['login']);
       this.logged = false;
     }, err => {
       console.log(err)

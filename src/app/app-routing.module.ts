@@ -11,8 +11,8 @@ const routes: Routes =[
   {path: '', redirectTo: '/homepage', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'homepage', component: HomepageComponent},
-  {path: 'product', component: ProductComponent}
+  {path: 'product', component: ProductComponent},
+  {path: 'homepage', component: HomepageComponent}
 ];
 
 @NgModule({
