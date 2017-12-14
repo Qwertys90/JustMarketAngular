@@ -3,6 +3,7 @@ import {LoginService} from "./service/login.service";
 import {Router} from "@angular/router";
 import {SharedService} from "./service/shared.service";
 import swal from 'sweetalert2';
+import {User} from "./models/user";
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import swal from 'sweetalert2';
 })
 export class AppComponent {
 
+  usere = new User();
   logged = false;
 
   constructor(private loginService: LoginService, private router: Router, private _sharedService: SharedService) {
@@ -43,10 +45,14 @@ export class AppComponent {
       console.log('logged out.')
       localStorage.removeItem('user');
       localStorage.removeItem('token');
-      swal(
-        'Torna a trovarci!',
-        'Log-out eseguito con successo.',
-        'success'
+      this.loginService.dettagli().subscribe(d=> {
+          this.usere = <User> d,
+            swal({
+              title: 'Torna a trovarci presto ' + this.usere.nome,
+              text: 'Log-out eseguito',
+              type: 'success'
+            });
+        }
       );
       this.logged = false;
     }, err => {

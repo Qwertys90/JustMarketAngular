@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {LoginService} from "../service/login.service";
 import {Router} from "@angular/router";
 import {SharedService} from "../service/shared.service";
+import swal from 'sweetalert2';
+import {User} from "../models/user";
+
 
 @Component({
   selector: 'app-login',
@@ -10,6 +13,7 @@ import {SharedService} from "../service/shared.service";
 })
 export class LoginComponent implements OnInit {
 
+  usere = new User();
   user = {username: '', password: ''};
 
   constructor(private loginService: LoginService, private router: Router,
@@ -25,6 +29,15 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', btoa(this.user.username + ':' + this.user.password));
       this._sharedService.emitChange('logged=true');
       this.router.navigate(['homepage'], { replaceUrl: true });
+      this.loginService.dettagli().subscribe(d=> {
+          this.usere = <User> d,
+            swal({
+              title: 'Benvenuto ' + this.usere.nome,
+              type: 'success'
+            });
+        }
+      );
+
     }, err => {
       console.log(err);
     })

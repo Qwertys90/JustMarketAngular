@@ -23,4 +23,8 @@ export class LoginService {
     return this.http.get(BACKEND_URL + '/logoutApp', {responseType: 'text'});
   }
 
+  dettagli(){
+    return this.http.get( BACKEND_URL + '/userdetails', httpOptions );
+  }
+
 }
