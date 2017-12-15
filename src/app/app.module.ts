@@ -4,8 +4,11 @@ import {Ng2PageScrollModule} from 'ng2-page-scroll';
 import {AuthGuard} from "./service/auth-guard.service";
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FormsModule} from '@angular/forms';
-import {MatCardModule, MatCheckboxModule, MatIconModule, MatRadioModule, MatSlideToggleModule} from '@angular/material';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {
+  MatCardModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule, MatRadioModule, MatSelectModule, MatSidenavModule,
+  MatSlideToggleModule
+} from '@angular/material';
 import { HomepageComponent } from './homepage/homepage.component';
 import {Ng2CarouselamosModule} from 'ng2-carouselamos';
 import { LoginComponent } from './login/login.component';
@@ -18,6 +21,7 @@ import {LoginService} from "./service/login.service";
 import { ProductComponent } from './product/product.component';
 import {ProductService} from './service/product.service';
 import {NouisliderModule} from 'ng2-nouislider';
+import { CarrelloComponent } from './carrello/carrello.component';
 
 
 @NgModule({
@@ -26,9 +30,15 @@ import {NouisliderModule} from 'ng2-nouislider';
     HomepageComponent,
     LoginComponent,
     RegisterComponent,
-    ProductComponent
+    ProductComponent,
+    CarrelloComponent
   ],
   imports: [
+    MatInputModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatSidenavModule,
     MatSlideToggleModule,
     BrowserAnimationsModule,
     BrowserModule,

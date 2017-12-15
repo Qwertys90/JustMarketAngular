@@ -1,13 +1,22 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav class="carrello">
+    <app-carrello></app-carrello>
+  </mat-sidenav>
+  <mat-sidenav-content class="mains">
+
+
+
 <div class="headerTop hidden-xs hidden-sm"></div>
 <div class="headerMid hidden-xs hidden-sm"></div>
 <div class="headerBot hidden-xs hidden-sm"></div>
 <div class="container">
   <div class="headercont hidden-xs hidden-sm">
     <div class="logo hidden-xs hidden-sm">
-      <img height=120px src="https://i.imgur.com/GRtO3JB.png" routerLink="/homepage">
+      <img height=120px src="https://i.imgur.com/GRtO3JB.png" routerLink="/homepage" class="logoHome">
     </div>
 
     <div class="headerTop2 hidden-xs hidden-sm">
+      <div class="pull-right rigo1"><span (click)="sidenav.toggle()"> Carrello</span></div>
       <div class="pull-right rigo1"><span routerLink="/login"> Accedi</span></div>
       <div class="pull-right rigo1"><span routerLink="/register"> Registrati</span></div>
       <div class="pull-right rigo1"><span> Benvenuta, Tetta</span></div>
@@ -110,3 +119,5 @@
 
   </div>
 </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

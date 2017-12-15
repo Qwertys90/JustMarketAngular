@@ -265,8 +265,13 @@
   font-size: 27px;
 }
 
+.mains{
+  background-color: #ffffff;
+}
+
 .main{
   width:100%;
+  background-color: #ffffff;
 }
 
 .headercont{
@@ -295,4 +300,21 @@
   font-size: .96em;
   color: #eee;
   line-height: 1.8em;
+}
+
+.carrello{
+  background-color: rgba(143, 8, 8, 1);
+  min-width: 30%;
+  border-right: 2px solid #fff;
+  -webkit-box-shadow: 10px 0px 14px 4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 0px 14px 4px rgba(0,0,0,0.75);
+  box-shadow: 10px 0px 14px 4px rgba(0,0,0,0.75);
+}
+
+.logoHome:hover{
+  cursor: pointer;
+}
+
+.logoHome:focus{
+  outline: none;
 }

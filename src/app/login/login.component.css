@@ -77,8 +77,15 @@
 }
 
 .centerLog{
-  margin-left: 30%;
+  width: 100%;
+  margin: auto;
+  padding: auto;
   width: auto;
   position: static;
   padding-top: 10px;
+  text-align: center;
 }
+.centratutto{
+  margin:20px auto;
+}
+
