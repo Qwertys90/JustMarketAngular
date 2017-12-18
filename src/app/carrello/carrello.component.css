@@ -1,0 +1,57 @@
+.carCont{
+  padding:30px;
+  text-align: center;
+}
+
+.trash{
+  color:#fff;
+  font-size:15px;
+  padding-top:7px;
+  padding-right: 5px;
+}
+
+.trash:hover{
+  cursor:pointer;
+}
+
+.lista{
+  color:#fff;
+  font-size:20px;
+}
+
+.totale{
+  color:#fff;
+  font-size:20px;
+  font-weight: 800;
+}
+
+select, option {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #8F0808;
+  border: 1px solid #fff;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+select, option:focus{
+  outline: none;
+}
+
+.CheckOut{
+  width: 100%;
+  background-color: #8f0808;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  color:#fff;
+  font-size: 30px;
+  font-weight: 700;
+  transition: all 1s ease;
+}
+
+
+.CheckOut:hover{
+  background-color: #fff;
+  color:#8f0808;
+}

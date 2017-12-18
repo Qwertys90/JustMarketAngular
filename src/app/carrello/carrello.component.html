@@ -1,0 +1,33 @@
+<div class="row carCont">
+
+  <div style="width: 100%; height: 25px; border-bottom: 2px solid #c2e4f1; text-align: center">
+  <span style="font-size: 30px; color:#fff;background-color: #8f0808; padding:10px">
+    Carrello <!--Padding is optional-->
+  </span>
+  </div>
+  <div style="padding-top: 10px">
+    <span class="lista" *ngIf="carrello.length==0">Non ci sono prodotti nel carrello</span>
+  </div>
+  <div style="padding-top: 10px;" *ngFor="let prod of carrello">
+    <span class="lista">{{prod.quantitaDaAcquistare}} x {{prod.nome}} </span><span class="lista pull-right"> {{prod.quantitaDaAcquistare*prod.prezzoUnitario}}€ </span><span
+    class="glyphicon glyphicon-trash trash pull-left"></span>
+  </div>
+
+  <hr style="width:80%; border-top: 2px solid #fff;padding: 2px 2px 2px 2px;">
+  <div style="padding-top: 10px;">
+    <span class="lista">TOTALE </span><span class="totale pull-right"> {{prezzoTotale}}€ </span><span
+    class="glyphicon glyphicon-trash trash pull-left" (click)="clearCarrello()"></span>
+  </div>
+  <div style="padding-top: 20px;">
+    <span class="lista">Seleziona una carta</span>
+    <select [(ngModel)]="crediCard" (change)="logOption()">
+      <option hidden>Scegli una carta</option>
+      <option class="optionColor" *ngFor="let card of listaCarte" name="creditCard" value={{card.id}} ngDefaultControl>{{card.numeroCarta}}</option>
+
+
+    </select>
+  </div>
+  <div style="padding-top: 20px;">
+    <button class="CheckOut" (click)="buyCarrello()">CHECKOUT</button>
+  </div>
+</div>
