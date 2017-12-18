@@ -8,4 +8,5 @@ export class Transazione{
   prezzoIva: number;
   numeroCarta: string;
   listaProdotti: Array<Prodotto>
+  data:string;
 }

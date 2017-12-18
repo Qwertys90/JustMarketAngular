@@ -9,7 +9,11 @@ import {Transazione} from '../models/transazione';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(private transService: TransazioneService) { }
+  constructor(private transService: TransazioneService) {
+
+    this.getAll()
+
+  }
   listaTransazioni= new Array<Transazione>()
   ngOnInit() {
   }
