@@ -15,6 +15,10 @@ export class HomepageComponent implements OnInit {
   listProd: Array<Prodotto> = [];
   listOffers: Array<Prodotto> = [];
   listaProdottiCarrello: Array<Prodotto> = [];
+  offersDate = new Date();
+  ddNow = new Date();
+  dddNow = new Date();
+  dateNow= new Date();
   constructor(private prodServ: ProductService,private _sharedService: SharedService) {
     this.getAll();
     PageScrollConfig.defaultDuration=500;
@@ -31,11 +35,16 @@ export class HomepageComponent implements OnInit {
   // }
 
   getAll() {
+    this.offersDate.setDate(this.offersDate.getDate() + 3);
+    this.ddNow.setDate(this.ddNow.getDate() - 1);
+    this.dddNow.setDate(this.dddNow.getDate() + 1)
     this.prodServ.getAll().subscribe(d => {
       this.listProd = d;
-      this.listOffers = this.listProd.filter(prod => prod.offerta===true ).slice(0,6);
+      for (let prod of this.listProd){
+        prod.dataScadenza = new Date(prod.dataScadenza);
+      }
+      this.listOffers = this.listProd.filter(prod => prod.offerta===true && prod.dataScadenza >= this.ddNow ).slice(0,6);
       console.log(this.listOffers);
-
     });
   }
 

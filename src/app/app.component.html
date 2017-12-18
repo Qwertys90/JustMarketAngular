@@ -14,11 +14,11 @@
     </div>
 
     <div class="headerTop2 hidden-xs hidden-sm" id="grigio">
-      <div class="pull-right rigo1"><span (click)="sidenav.toggle()"> Carrello </span></div>
-      <div class="pull-right rigo1" *ngIf="!logged"><span routerLink="/login"> Accedi</span></div>
-      <div class="pull-right rigo1" *ngIf="!logged"><span routerLink="/register"> Registrati</span></div>
-      <div class="pull-right rigo1" *ngIf="logged"><span routerLink="/profile"> Benvenuto, {{userLogged.nome}}</span></div>
-      <div class="pull-right rigo1" *ngIf="logged"><span (click)="logout()"> Log-out</span></div>
+      <div class="pull-right rigo1" (click)="sidenav.toggle()"><span > Carrello </span></div>
+      <div class="pull-right rigo1" *ngIf="!logged" routerLink="/login"><span > Accedi</span></div>
+      <div class="pull-right rigo1" *ngIf="!logged" routerLink="/register"><span > Registrati</span></div>
+      <div class="pull-right rigo1" *ngIf="logged" routerLink="/profile"><span > Benvenuto, {{userLogged.nome}}</span></div>
+      <div class="pull-right rigo1" *ngIf="logged" (click)="logout()"><span > Log-out</span></div>
 
     </div>
     <div class="slogan hidden-xs hidden-sm">

@@ -4,7 +4,7 @@ export class Prodotto{
   marca: string;
   nome: string;
   descrizione?: string;
-  dataScadenza: string;
+  dataScadenza: Date;
   quantita: number;
   unita: number;
   quantitaDaAcquistare: number;
