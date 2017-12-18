@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
-  MatCardModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule, MatRadioModule, MatSelectModule, MatSidenavModule,
+  MatCardModule, MatCheckboxModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatInputModule, MatRadioModule, MatSelectModule,
+  MatSidenavModule,
   MatSlideToggleModule
 } from '@angular/material';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -25,6 +26,7 @@ import { CarrelloComponent } from './carrello/carrello.component';
 import {CreditCardService} from './service/credit-card.service';
 import {TransazioneService} from './service/transazione.service';
 import {StarRatingModule} from 'angular-star-rating';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import {StarRatingModule} from 'angular-star-rating';
     LoginComponent,
     RegisterComponent,
     ProductComponent,
-    CarrelloComponent
+    CarrelloComponent,
+    UserProfileComponent
   ],
   imports: [
     MatInputModule,
@@ -47,6 +50,7 @@ import {StarRatingModule} from 'angular-star-rating';
     BrowserModule,
     FormsModule,
     MatIconModule,
+    MatExpansionModule,
     Ng2CarouselamosModule,
     AppRoutingModule,
     HttpClientModule,

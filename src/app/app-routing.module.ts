@@ -5,6 +5,7 @@ import {RegisterComponent} from "./register/register.component";
 import {ProductComponent} from "./product/product.component";
 //import {AuthGuard} from "./service/auth-guard.service";
 import {HomepageComponent} from './homepage/homepage.component';
+  import {UserProfileComponent} from './user-profile/user-profile.component';
 
 
 const routes: Routes =[
@@ -12,7 +13,8 @@ const routes: Routes =[
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'product', component: ProductComponent},
-  {path: 'homepage', component: HomepageComponent}
+  {path: 'homepage', component: HomepageComponent},
+  {path: 'profile', component: UserProfileComponent}
 ];
 
 @NgModule({

@@ -22,4 +22,8 @@ export class TransazioneService {
 
   }
 
+  getAll(){
+    return this.http.get(BACKEND_URL + '/transazione/getall', httpOptions)
+  }
+
 }

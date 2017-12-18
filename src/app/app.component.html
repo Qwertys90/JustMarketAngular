@@ -17,7 +17,7 @@
       <div class="pull-right rigo1"><span (click)="sidenav.toggle()"> Carrello </span></div>
       <div class="pull-right rigo1" *ngIf="!logged"><span routerLink="/login"> Accedi</span></div>
       <div class="pull-right rigo1" *ngIf="!logged"><span routerLink="/register"> Registrati</span></div>
-      <div class="pull-right rigo1" *ngIf="logged"><span> Benvenuto, {{userLogged.nome}}</span></div>
+      <div class="pull-right rigo1" *ngIf="logged"><span routerLink="/profile"> Benvenuto, {{userLogged.nome}}</span></div>
       <div class="pull-right rigo1" *ngIf="logged"><span (click)="logout()"> Log-out</span></div>
 
     </div>
