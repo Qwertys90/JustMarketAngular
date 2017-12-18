@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from '../service/product.service';
 import {Prodotto} from '../models/prodotto';
+import {SharedService} from "../service/shared.service";
+import swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-product',
@@ -10,7 +13,9 @@ import {Prodotto} from '../models/prodotto';
 export class ProductComponent implements OnInit {
   listProd: Array<Prodotto> = [];
   listProdTotale: Array<Prodotto> = [];
-  constructor(private prodServ: ProductService) {
+  listaProdottiCarrello: Array<Prodotto> = [];
+
+  constructor(private prodServ: ProductService, private _sharedService: SharedService) {
 
     this.getAll()
 
@@ -29,11 +34,6 @@ export class ProductComponent implements OnInit {
     this.prodServ.getAll().subscribe(d => {
       this.listProdTotale = d;
       this.listProd=this.listProdTotale
-
-
-
-
-
     });
   }
 
@@ -54,5 +54,39 @@ export class ProductComponent implements OnInit {
         prod.marca.toLowerCase().includes(this.cerca.toLowerCase())||prod.nome.toLowerCase().includes(this.cerca.toLowerCase())
       );
 
+  }
+
+  aggiungiAlCarrello(prod:Prodotto) {
+    let id:number=0;
+    let x:number=0;
+    let control:boolean;
+    this.listaProdottiCarrello=<Array<Prodotto>>JSON.parse(localStorage.getItem("carrello")  )
+    prod.quantitaDaAcquistare=1
+    for(let p of this.listaProdottiCarrello){
+      if(p.id===prod.id) {
+        id = x;
+        control = true
+      }
+      x++
+    }
+
+    console.log(id)
+    if(control) {
+      this.listaProdottiCarrello[id].quantitaDaAcquistare = this.listaProdottiCarrello[id].quantitaDaAcquistare + 1
+    }
+    else
+      this.listaProdottiCarrello.push(prod)
+    swal({
+      title: 'Prodotto aggiunto al carrello!',
+      type: 'success',
+      showConfirmButton: false,
+      timer: 1000,
+      onOpen: () => {
+        swal.showLoading()
+      }
+    });
+
+    localStorage.setItem('carrello',JSON.stringify(this.listaProdottiCarrello));
+    this._sharedService.emitChange('logged=true');
   }
 }

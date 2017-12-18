@@ -3,6 +3,8 @@ import {ProductService} from '../service/product.service';
 import {Prodotto} from '../models/prodotto';
 import {PageScrollConfig} from 'ng2-page-scroll';
 import {SharedService} from '../service/shared.service';
+import swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-homepage',
@@ -57,6 +59,15 @@ export class HomepageComponent implements OnInit {
     }
     else
   this.listaProdottiCarrello.push(prod)
+    swal({
+      title: 'Prodotto aggiunto al carrello!',
+      type: 'success',
+      showConfirmButton: false,
+      timer: 1000,
+      onOpen: () => {
+        swal.showLoading()
+      }
+    });
 
   localStorage.setItem('carrello',JSON.stringify(this.listaProdottiCarrello));
     this._sharedService.emitChange('logged=true');
