@@ -16,4 +16,9 @@ export class CreditCardService {
     return this.http.get<Array<CreditCard>>( BACKEND_URL + '/creditcard/getall', httpOptions );
   }
 
+  saveCarta(card:CreditCard){
+    return this.http.post( BACKEND_URL + '/creditcard/saveupdate',card , httpOptions );
+  }
+
+
 }

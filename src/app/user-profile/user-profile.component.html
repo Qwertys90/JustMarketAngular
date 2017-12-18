@@ -1,49 +1,151 @@
 <mat-expansion-panel (opened)="panelOpenState = true"
-                     (closed)="panelOpenState = false">
+                     (closed)="panelOpenState = false" class="expa">
   <mat-expansion-panel-header>
     <mat-panel-title>
-Lista Transazioni    </mat-panel-title>
-    <mat-panel-description>
-
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-
-<mat-expansion-panel (opened)="panelOpenState = true"
-                     (closed)="panelOpenState = false"
-
-*ngFor="let trans of listaTransazioni">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Ordine n° - {{trans.codiceTransazione}}
+      <span class="titleLista">Lista Transazioni</span>
     </mat-panel-title>
     <mat-panel-description>
-      Data: {{trans.data}} - Prezzo Totale: {{trans.prezzoIva}}
+
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <p *ngFor="let prod of trans.listaProdotti">Marca: {{prod.marca}}-{{prod.nome}}-{{prod.prezzoUnitario}}-{{prod.quantitaDaAcquistare}}-{{prod.prezzoUnitario*prod.quantitaDaAcquistare}}</p>
-</mat-expansion-panel>
+
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false"
+
+                       *ngFor="let trans of listaTransazioni">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Ordine n° - {{trans.codiceTransazione}}
+      </mat-panel-title>
+      <mat-panel-description>
+        Data: {{trans.data}} - Prezzo Totale: {{trans.prezzoIva}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p *ngFor="let prod of trans.listaProdotti">Articolo:
+      {{prod.marca}}-{{prod.nome}}-{{prod.prezzoUnitario}}-{{prod.quantitaDaAcquistare}}-{{prod.prezzoUnitario*prod.quantitaDaAcquistare}}</p>
+  </mat-expansion-panel>
 </mat-expansion-panel>
 <mat-expansion-panel (opened)="panelOpenState = true"
-                     (closed)="panelOpenState = false">
+                     (closed)="panelOpenState = false" class="expa">
   <mat-expansion-panel-header>
     <mat-panel-title>
-      Lista Carte    </mat-panel-title>
+      <span class="titleLista">Lista Carte</span>
+    </mat-panel-title>
     <mat-panel-description>
-
     </mat-panel-description>
   </mat-expansion-panel-header>
 
 
+  <p *ngFor="let card of listaCard">Carta Numero: {{card.numeroCarta}} di {{card.cognome}} {{card.nome}} valida fino al
+    {{card.scadenza}}</p><br>
+
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Inserisci nuova carta
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!--inserimento carta-->
+    <div class="formInserimento">
+      <div class="creditCard nomicampi">
+        <div>Cognome: <br></div>
+        <div>Nome: <br></div>
+        <div>Numero Carta: <br></div>
+        <div>CVV: <br></div>
+        <div>Scadenza(mm/aa):</div>
+      </div>
+      <div class="creditCard">
+        <div><input [(ngModel)]="creditCard.cognome"><br></div>
+        <div><input [(ngModel)]="creditCard.nome"><br></div>
+        <div><input [(ngModel)]="creditCard.numeroCarta"><br></div>
+        <div><input [(ngModel)]="creditCard.cvv"><br></div>
+        <div><input [(ngModel)]="creditCard.scadenza"></div>
+      </div>
+      <div class="submit">
+        <button type="submit" class="btn btn-large btn-danger" (click)="saveCarta()">Inserisci Carta</button>
+      </div>
+    </div>
+    <!--fine inserimento carta-->
+  </mat-expansion-panel>
 </mat-expansion-panel>
+
+
+<!--expansion utente-->
 <mat-expansion-panel (opened)="panelOpenState2 = true"
-                     (closed)="panelOpenState2 = false">
+                     (closed)="panelOpenState2 = false" class="expa">
   <mat-expansion-panel-header>
     <mat-panel-title>
-      Profilo Utente   </mat-panel-title>
+      <span class="titleLista">Profilo Utente</span>
+    </mat-panel-title>
     <mat-panel-description>
 
     </mat-panel-description>
   </mat-expansion-panel-header>
 
+  <!--dati personali-->
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Modifica dati personali
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!--inserimento carta-->
+    <div class="formInserimento">
+      <div class="creditCard nomicampi">
+        <div>Cognome: <br></div>
+        <div>Nome: <br></div>
+        <div>Numero Carta: <br></div>
+        <div>CVV: <br></div>
+        <div>Scadenza(mm/aa):</div>
+      </div>
+      <div class="creditCard">
+        <div><input [(ngModel)]="creditCard.cognome"><br></div>
+        <div><input [(ngModel)]="creditCard.nome"><br></div>
+        <div><input [(ngModel)]="creditCard.numeroCarta"><br></div>
+        <div><input [(ngModel)]="creditCard.cvv"><br></div>
+        <div><input [(ngModel)]="creditCard.scadenza"></div>
+      </div>
+      <div class="submit">
+        <button type="submit" class="btn btn-large btn-danger" (click)="saveCarta()">Inserisci Carta</button>
+      </div>
+    </div>
+    <!--fine inserimento carta-->
+  </mat-expansion-panel>
+<!-- fine dati personali-->
 
+  <!--username-->
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Modifica dati username
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+  <!-- fine username-->
+
+
+  <!--password-->
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Modifica dati password
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+  <!-- fine password-->
 </mat-expansion-panel>
+
