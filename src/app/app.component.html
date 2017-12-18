@@ -13,7 +13,7 @@
       <img height=120px src="https://i.imgur.com/GRtO3JB.png" routerLink="/homepage" class="logoHome">
     </div>
 
-    <div class="headerTop2 hidden-xs hidden-sm">
+    <div class="headerTop2 hidden-xs hidden-sm" id="grigio">
       <div class="pull-right rigo1"><span (click)="sidenav.toggle()"> Carrello </span></div>
       <div class="pull-right rigo1" *ngIf="!logged"><span routerLink="/login"> Accedi</span></div>
       <div class="pull-right rigo1" *ngIf="!logged"><span routerLink="/register"> Registrati</span></div>
@@ -75,23 +75,21 @@
     <router-outlet></router-outlet>
   </div>
 </div>
+
+<div class="tornasu">
+  <span href="#grigio" class="scrollup" pageScroll class="glyphicon glyphicon-chevron-up" ></span>
+</div>
 <div class="footer-section">
   <div class="container">
     <div class="footer-four-columns">
       <div class="col-md-3 footer-column">
         <h4>Chi siamo </h4>
-        <p>BREVE DESCRIZIONE</p>
+        <p>Siamo un azienda che esige il meglio per il cliente. Crediamo nel futuro di questo progetto, per questo cerchiamo di offrire i migliori prodotti al miglior prezzo che il mercato può offire.
+           Vogliamo crescere con voi e per voi. Questo è JustMarket.</p>
       </div>
       <div class="col-md-3 footer-column">
-        <h4>Maps?</h4>
-        <ul>
-          <li>maps?</li>
-          <li>maps?</li>
-          <li>maps?</li>
-          <li>maps?</li>
-          <li>maps?</li>
-          <li>maps?</li>
-        </ul>
+        <h4>Dove siamo</h4>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.309971022817!2d12.467069750679862!3d41.88619037911959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f603974a2840f%3A0x12acaae9b4ba9bac!2sVia+Roma+Libera%2C+2%2C+00153+Roma+RM!5e0!3m2!1sit!2sit!4v1513591013738" width="250" frameborder="0" style="border:0" allowfullscreen></iframe>
       </div>
       <div class="col-md-3 footer-column" id="contattaci">
         <h4>Useful links</h4>
@@ -107,8 +105,8 @@
         <h4>Contatti</h4>
         <ul>
           <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+39 06-12345678</li>
-          <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:example@mail.com"> example@mail.com</a></li>
-          <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Via Roma, 69 (RM) 00100</li>
+          <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:example@mail.com"> justmarket@mail.com</a></li>
+          <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Via Roma Libera, 2 (RM) 00153</li>
           <li><i class="glyphicon glyphicon-time" aria-hidden="true"></i>Lun-Sab 8:00 am to 8:00 pm</li>
         </ul>
       </div>

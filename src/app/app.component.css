@@ -318,3 +318,22 @@
 .logoHome:focus{
   outline: none;
 }
+
+.tornasu{
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -25px;
+}
+
+.glyphicon.glyphicon-chevron-up {
+  font-size: 50px;
+  color: #8F0808;
+  text-shadow: 0px 0px 5px rgba(0,0,0,1);
+}
+/*.footer iframe {*/
+  /*width:100%;*/
+  /*position:relative;*/
+  /*height:170px;*/
+
+/*}*/
