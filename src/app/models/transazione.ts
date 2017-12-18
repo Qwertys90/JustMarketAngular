@@ -1,7 +1,11 @@
+import {Prodotto} from './prodotto';
+import {CreditCard} from './creditcard';
+
 export class Transazione{
   id?: number;
   codiceTransazione: string;
   prezzoNoIva: number;
   prezzoIva: number;
-  creditCard: object;
+  numeroCarta: string;
+  listaProdotti: Array<Prodotto>
 }

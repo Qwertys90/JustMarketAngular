@@ -1,3 +1,5 @@
+import {CreditCard} from './creditcard';
+
 export class User{
   id?: number;
   via: string;

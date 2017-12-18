@@ -22,6 +22,9 @@ import { ProductComponent } from './product/product.component';
 import {ProductService} from './service/product.service';
 import {NouisliderModule} from 'ng2-nouislider';
 import { CarrelloComponent } from './carrello/carrello.component';
+import {CreditCardService} from './service/credit-card.service';
+import {TransazioneService} from './service/transazione.service';
+import {StarRatingModule} from 'angular-star-rating';
 
 
 @NgModule({
@@ -60,9 +63,11 @@ import { CarrelloComponent } from './carrello/carrello.component';
       useClass: InterceptorService,
       multi: true,
     },
+    CreditCardService,
     AuthGuard,
     SharedService,
-    ProductService
+    ProductService,
+    TransazioneService
   ],
   bootstrap: [AppComponent]
 })

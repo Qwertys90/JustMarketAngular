@@ -1,3 +1,5 @@
+import {User} from './user';
+
 export class CreditCard{
   id?: number;
   nome: string;
@@ -5,5 +7,5 @@ export class CreditCard{
   numeroCarta: string;
   cvv: string;
   scadenza: string;
-
+  user:User;
 }

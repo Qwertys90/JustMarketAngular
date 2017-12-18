@@ -23,6 +23,7 @@
     "@angular/platform-browser": "^5.1.1",
     "@angular/platform-browser-dynamic": "^5.1.1",
     "@angular/router": "^5.1.1",
+    "angular-star-rating": "^3.0.8",
     "angular-ui-carousel": "^0.1.10",
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.3",

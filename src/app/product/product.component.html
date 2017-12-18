@@ -4,21 +4,56 @@
     <mat-slide-toggle
       class="example-margin"
       color="primary"
-      [checked]="checked"
-      [disabled]="disabled">
-      Mostra Offerte
+      (change)="filtra()"
+      [(ngModel)]="filtroOffers"
+    >
+      Solo Offerte
+    </mat-slide-toggle>
+  </span>
+  <span class="toolbarItem">
+    <mat-slide-toggle
+      class="example-margin"
+      color="primary"
+      (change)="filtra()"
+      [(ngModel)]="filtroDisponibili"
+    >
+      Solo Disponibili
     </mat-slide-toggle>
   </span>
 
   <span class="toolbarItem">
-   Prezzo da  <input class="searchBox" maxlength="3" size="3" type="text"> a <input class="searchBox" maxlength="3" size="3" type="text">
+   Prezzo da  <input class="searchBox" maxlength="3" size="3" type="text" [(ngModel)]="prezzoMinimo" (keyup)="filtra()"> a <input class="searchBox" maxlength="3" size="3" type="text" [(ngModel)]="prezzoMassimo" (keyup)="filtra()">
   </span>
 
   <span class="toolbarItem pull-right">
-   Cerca  <input class="searchBox" maxlength="3" size="3" type="text">
+   Cerca  <input class="searchBox" maxlength="9" size="9" type="text" [(ngModel)]="cerca" (keyup)="filtra()">
   </span>
 
 
 
 </div>
+  <div class="row offers">
+    <!--item from server-->
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 offersItem" *ngFor="let prod of listProd">
+      <div class="offersCont col-lg-12">
+        <div class="offersIcons">
+          <img src="{{prod.img}}" style="width: auto !important; height: auto !important;
+  max-width: 100%;">
+        </div>
+        <div class="row infoCont">
+          <span class="iteminfo">Prezzo Unitario: {{prod.prezzoUnitario}} €</span><br>
+          <span class="iteminfo">Disponibilità: {{prod.quantita}}kg</span><br>
+          <span class="iteminfo" *ngIf="prod.offerta===true">offerta - {{prod.sconto}}%<br></span>
+          <span class="offertaWrap"></span>
+          <span class="terminato" *ngIf="prod.quantita==0">TERMINATO</span>
+          <span class="disponibile" *ngIf="prod.quantita>0"></span>
+          <span class="addCarrello" *ngIf="prod.quantita>0" (click)="aggiungiAlCarrello(prod)"><img src="http://download.seaicons.com/icons/custom-icon-design/flatastic-4/512/Shopping-cart-add-icon.png"> </span>
+        </div>
+      </div>
+      <div class="ribbon" *ngIf="prod.offerta===true&&prod.quantita>0"><span>OFFERTA!</span></div>
+    </div>
+
+    <!--item from server-->
+
+  </div>
 </div>

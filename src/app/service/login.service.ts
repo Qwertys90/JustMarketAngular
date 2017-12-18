@@ -9,7 +9,8 @@ const httpOptions = {
 @Injectable()
 export class LoginService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   login(user){
     return this.http.post(BACKEND_URL + '/login', user, httpOptions);
@@ -25,6 +26,10 @@ export class LoginService {
 
   dettagli(){
     return this.http.get( BACKEND_URL + '/userdetails', httpOptions );
+  }
+
+  isLog(){
+    return this.http.get( BACKEND_URL + '/islogged', httpOptions );
   }
 
 }

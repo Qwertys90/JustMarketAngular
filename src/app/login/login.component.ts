@@ -42,6 +42,8 @@ export class LoginComponent implements OnInit {
             }
           });
       });
+      this._sharedService.emitChange('login');
+
     }, err => {
       console.log(err);
       swal(

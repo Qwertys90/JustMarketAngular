@@ -57,8 +57,9 @@ export class HomepageComponent implements OnInit {
     }
     else
   this.listaProdottiCarrello.push(prod)
-    this._sharedService.emitChange('logged=true');
+
   localStorage.setItem('carrello',JSON.stringify(this.listaProdottiCarrello));
+    this._sharedService.emitChange('logged=true');
 }
 
 }

@@ -4,8 +4,6 @@
   </mat-sidenav>
   <mat-sidenav-content class="mains">
 
-
-
 <div class="headerTop hidden-xs hidden-sm"></div>
 <div class="headerMid hidden-xs hidden-sm"></div>
 <div class="headerBot hidden-xs hidden-sm"></div>
@@ -16,11 +14,11 @@
     </div>
 
     <div class="headerTop2 hidden-xs hidden-sm">
-      <div class="pull-right rigo1"><span (click)="sidenav.toggle()"> Carrello</span></div>
-      <div class="pull-right rigo1"><span routerLink="/login"> Accedi</span></div>
-      <div class="pull-right rigo1"><span routerLink="/register"> Registrati</span></div>
-      <div class="pull-right rigo1"><span> Benvenuta, Tetta</span></div>
-      <div class="pull-right rigo1"><span (click)="logout()"> Log-out</span></div>
+      <div class="pull-right rigo1"><span (click)="sidenav.toggle()"> Carrello </span></div>
+      <div class="pull-right rigo1" *ngIf="!logged"><span routerLink="/login"> Accedi</span></div>
+      <div class="pull-right rigo1" *ngIf="!logged"><span routerLink="/register"> Registrati</span></div>
+      <div class="pull-right rigo1" *ngIf="logged"><span> Benvenuto, {{userLogged.nome}}</span></div>
+      <div class="pull-right rigo1" *ngIf="logged"><span (click)="logout()"> Log-out</span></div>
 
     </div>
     <div class="slogan hidden-xs hidden-sm">
