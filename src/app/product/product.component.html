@@ -41,7 +41,11 @@
   max-width: 100%;">
         </div>
         <div class="row infoCont">
-          <span class="iteminfo">Prezzo Unitario: {{prod.prezzoUnitario}} €</span><br>
+          <span class="iteminfo">Articolo: {{prod.nome}}</span><br>
+          <span class="iteminfo">Marca: {{prod.marca}}</span><br>
+          <span class="iteminfo" *ngIf="offersDate < prod.dataScadenza ">Prezzo Unitario: <b>{{prod.prezzoUnitario | number : '1.2-2'}} €</b><br></span>
+          <span class="iteminfo" *ngIf="offersDate > prod.dataScadenza && dateNow < prod.dataScadenza">Prezzo Unitario: <span class="oferta">{{prod.prezzoUnitario | number : '1.2-2'}}</span> <b>{{prod.prezzoUnitario * 0.7 | number : '1.2-2'}} €</b></span>
+          <span class="iteminfo" *ngIf="ddNow < prod.dataScadenza && dddNow > prod.dataScadenza">Prezzo Unitario: <span class="oferta">{{prod.prezzoUnitario | number : '1.2-2'}}</span> <b>{{prod.prezzoUnitario * 0.3 | number : '1.2-2'}} €</b><br></span>
           <span class="iteminfo">Disponibilità: {{prod.quantita}}kg</span><br>
           <span class="iteminfo" *ngIf="prod.offerta===true">offerta - {{prod.sconto}}%<br></span>
           <span class="offertaWrap"></span>

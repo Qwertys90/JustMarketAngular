@@ -14,7 +14,10 @@ export class ProductComponent implements OnInit {
   listProd: Array<Prodotto> = [];
   listProdTotale: Array<Prodotto> = [];
   listaProdottiCarrello: Array<Prodotto> = [];
-
+  offersDate = new Date();
+  ddNow = new Date();
+  dddNow = new Date();
+  dateNow= new Date();
   constructor(private prodServ: ProductService, private _sharedService: SharedService) {
 
     this.getAll()
@@ -30,17 +33,24 @@ export class ProductComponent implements OnInit {
   cerca='';
 
   getAll() {
+    this.offersDate.setDate(this.offersDate.getDate() + 3);
+    this.dddNow.setDate(this.dddNow.getDate() + 1);
+    this.ddNow.setDate(this.ddNow.getDate() - 1);
     console.log('filter'+this.filtroOffers)
     this.prodServ.getAll().subscribe(d => {
       this.listProdTotale = d;
       this.listProd=this.listProdTotale
+      for (let prod of this.listProdTotale){
+        prod.dataScadenza = new Date(prod.dataScadenza);
+      }
+      this.listProdTotale.filter(prod => prod.offerta===true && prod.dataScadenza >= this.ddNow);
     });
   }
 
   filtra(){
-    this.listProd=this.listProdTotale
+    this.listProd=this.listProdTotale;
     if(this.filtroOffers)
-    this.listProd = this.listProd.filter(prod => prod.offerta===true );
+    this.listProd = this.listProd.filter(prod => prod.offerta===true);
     if(this.filtroDisponibili)
       this.listProd = this.listProd.filter(prod => prod.quantita>0 );
     if(this.prezzoMinimo!=null)

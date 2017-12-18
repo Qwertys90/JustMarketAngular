@@ -9,8 +9,17 @@
     <span class="lista" *ngIf="carrello.length==0">Non ci sono prodotti nel carrello</span>
   </div>
   <div style="padding-top: 10px;" *ngFor="let prod of carrello">
-    <span class="lista">{{prod.quantitaDaAcquistare}} x {{prod.nome}} </span><span class="lista pull-right"> {{prod.quantitaDaAcquistare*prod.prezzoUnitario}}€ </span><span
-    class="glyphicon glyphicon-trash trash pull-left"></span>
+    <span *ngIf="offersDate < prod.dataScadenza ">
+    <span class="lista" >{{prod.quantitaDaAcquistare}} x {{prod.nome}} </span><span class="lista pull-right"> {{prod.quantitaDaAcquistare*prod.prezzoUnitario | number : '1.2-2'}}€ </span><span
+    class="glyphicon glyphicon-trash trash pull-left" (click)="deleteCarrello()"></span></span>
+
+    <span *ngIf="offersDate > prod.dataScadenza && dateNow < prod.dataScadenza">
+    <span class="lista" >{{prod.quantitaDaAcquistare}} x {{prod.nome}} </span><span class="lista pull-right"> {{prod.quantitaDaAcquistare*(prod.prezzoUnitario*0.7) | number : '1.2-2'}}€ </span><span
+    class="glyphicon glyphicon-trash trash pull-left" (click)="deleteCarrello()"></span></span>
+
+    <span *ngIf="dateNow.getDay() == prod.dataScadenza.getDay() && dddNow.getMonth() == prod.dataScadenza.getMonth() && dddNow.getFullYear() == prod.dataScadenza.getFullYear()  ">
+    <span class="lista">{{prod.quantitaDaAcquistare}} x {{prod.nome}} </span><span class="lista pull-right"> {{prod.quantitaDaAcquistare*(prod.prezzoUnitario*0.3) | number : '1.2-2'}}€ </span><span
+    class="glyphicon glyphicon-trash trash pull-left" (click)="deleteCarrello()"></span></span>
   </div>
 
   <hr style="width:80%; border-top: 2px solid #fff;padding: 2px 2px 2px 2px;">
@@ -18,9 +27,10 @@
     <span class="lista">TOTALE </span><span class="totale pull-right"> {{prezzoTotale}}€ </span><span
     class="glyphicon glyphicon-trash trash pull-left" (click)="clearCarrello()"></span>
   </div>
-  <div style="padding-top: 20px;">
-    <span class="lista">Seleziona una carta</span>
-    <select [(ngModel)]="crediCard" (change)="logOption()">
+  <div style="padding-top: 20px;" >
+    <span class="lista" *ngIf="logged && listaCarte.length == 0"><a routerLink="/profile">Aggiungere carta</a></span>
+    <span class="lista" *ngIf="logged && listaCarte.length > 0">Seleziona una carta</span>
+    <select [(ngModel)]="crediCard" (change)="logOption()" *ngIf="logged && listaCarte.length > 0">
       <option hidden>Scegli una carta</option>
       <option class="optionColor" *ngFor="let card of listaCarte" name="creditCard" value={{card.id}} ngDefaultControl>{{card.numeroCarta}}</option>
 
@@ -28,6 +38,6 @@
     </select>
   </div>
   <div style="padding-top: 20px;">
-    <button class="CheckOut" (click)="buyCarrello()">CHECKOUT</button>
+    <button class="CheckOut" (click)="buyCarrello()" *ngIf="logged">CHECKOUT</button>
   </div>
 </div>
