@@ -8,6 +8,8 @@ import {CreditCardService} from '../service/credit-card.service';
 import {TransazioneService} from '../service/transazione.service';
 import {Router} from "@angular/router";
 import {User} from "../models/user";
+import swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-carrello',
@@ -18,13 +20,13 @@ export class CarrelloComponent implements OnInit {
   prezzoTotale: number;
   carrello: Array<Prodotto> = new Array();
   transazione = new Transazione()
-  crediCard=0
+  crediCard = 0
   listaCarte = new Array()
   offersDate = new Date();
   dateNow = new Date();
   ddNow = new Date();
   dddNow = new Date();
-  userLogged=new User()
+  userLogged = new User()
   logged = false;
 
   constructor(private _sharedService: SharedService, private loginService: LoginService, private creditService: CreditCardService, private transService: TransazioneService, private router: Router) {
@@ -55,7 +57,7 @@ export class CarrelloComponent implements OnInit {
     }
     _sharedService.changeEmitted$.subscribe(text => {
       console.log(text);
-      if(text=="login")
+      if (text == "login")
         this.logged = true;
     });
   }
@@ -63,8 +65,8 @@ export class CarrelloComponent implements OnInit {
   ngOnInit() {
   }
 
-  getUtente(){
-    this.loginService.dettagli().subscribe( d => {
+  getUtente() {
+    this.loginService.dettagli().subscribe(d => {
       this.userLogged = <User>d
     })
   }
@@ -77,17 +79,17 @@ export class CarrelloComponent implements OnInit {
       localStorage.setItem('carrello', JSON.stringify(this.carrello));
     }
     this.carrello = JSON.parse(localStorage.getItem('carrello'));
-    for(let prod of this.carrello){
+    for (let prod of this.carrello) {
       prod.dataScadenza = new Date(prod.dataScadenza);
     }
     this.prezzoTotale = 0;
     for (let prod of this.carrello) {
       if (this.offersDate < prod.dataScadenza) {
         this.prezzoTotale += prod.prezzoUnitario * prod.quantitaDaAcquistare;
-      }else if(this.offersDate > prod.dataScadenza && this.dateNow < prod.dataScadenza){
-        this.prezzoTotale += (prod.prezzoUnitario * 0.7)*prod.quantitaDaAcquistare;
-      }else if(this.ddNow < prod.dataScadenza && this.dddNow > prod.dataScadenza){
-        this.prezzoTotale += (prod.prezzoUnitario * 0.3)*prod.quantitaDaAcquistare;
+      } else if (this.offersDate > prod.dataScadenza && this.dateNow < prod.dataScadenza) {
+        this.prezzoTotale += (prod.prezzoUnitario * 0.7) * prod.quantitaDaAcquistare;
+      } else if (this.ddNow < prod.dataScadenza && this.dddNow > prod.dataScadenza) {
+        this.prezzoTotale += (prod.prezzoUnitario * 0.3) * prod.quantitaDaAcquistare;
       }
     }
   }
@@ -106,28 +108,55 @@ export class CarrelloComponent implements OnInit {
     this.prezzoTotale = 0;
   }
 
-  logOption(){
+  logOption() {
     console.log(this.crediCard)
   }
 
   buyCarrello() {
-    this.transazione.listaProdotti = JSON.parse(localStorage.getItem('carrello'))
-    localStorage.setItem('carrello', JSON.stringify(new Array()));
-    console.log(this.transazione)
-    this.transService.saveTransaction(this.transazione, this.crediCard).subscribe(result=> {
-      this.carrello = new Array()
-      console.log(result)
+    if (this.crediCard != 0 && JSON.parse(localStorage.getItem('carrello')).length != 0) {
+      this.transazione.listaProdotti = JSON.parse(localStorage.getItem('carrello'))
+      localStorage.setItem('carrello', JSON.stringify(new Array()));
+      console.log(this.transazione)
+      this.transService.saveTransaction(this.transazione, this.crediCard).subscribe(result => {
+          this.carrello = new Array()
+          console.log(result)
+          swal({
+            title: 'Prodotto acquistato!',
+            text: 'Grazie per il tuo acquisto',
+            type: 'success',
+            showConfirmButton: false,
+            timer: 1500,
+            onOpen: () => {
+              swal.showLoading()
+            }
+          });
+          this.prezzoTotale = 0;
+        }
+      )
+    }else{
+      if(this.crediCard == 0){
+        swal(
+          'Oops...',
+          'Carta di credito assente',
+          'error'
+        )
+      }else{
+        swal(
+          'Oops...',
+          'Nessun prodotto selezionato',
+          'error'
+        )
+      }
     }
-  )
   }
 
   getCarte() {
-    this.listaCarte=new Array()
+    this.listaCarte = new Array()
     this.creditService.getAll().subscribe(d => {
       console.log(d)
       this.listaCarte = d;
-      for(let card of this.listaCarte){
-        card.numeroCarta=atob(card.numeroCarta)
+      for (let card of this.listaCarte) {
+        card.numeroCarta = atob(card.numeroCarta)
         // this.listaCarte.push(card)
         console.log(card)
       }

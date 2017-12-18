@@ -24,7 +24,7 @@
 
   <hr style="width:80%; border-top: 2px solid #fff;padding: 2px 2px 2px 2px;">
   <div style="padding-top: 10px;">
-    <span class="lista">TOTALE </span><span class="totale pull-right"> {{prezzoTotale}}€ </span><span
+    <span class="lista">TOTALE </span><span class="totale pull-right"> {{prezzoTotale | number : '1.2-2'}}€ </span><span
     class="glyphicon glyphicon-trash trash pull-left" (click)="clearCarrello()"></span>
   </div>
   <div style="padding-top: 20px;" >
