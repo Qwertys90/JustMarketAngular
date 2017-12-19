@@ -13,4 +13,5 @@ export class Prodotto{
   sconto: number;
   prezzoNoIva?: number;
   prezzoIvato?: number;
+  categoria: number;
 }

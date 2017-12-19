@@ -25,8 +25,10 @@
    Prezzo da  <input class="searchBox" maxlength="3" size="3" type="text" [(ngModel)]="prezzoMinimo" (keyup)="filtra()"> a <input class="searchBox" maxlength="3" size="3" type="text" [(ngModel)]="prezzoMassimo" (keyup)="filtra()">
   </span>
 
+
+
   <span class="toolbarItem pull-right">
-   Cerca  <input class="searchBox" maxlength="9" size="9" type="text" [(ngModel)]="cerca" (keyup)="filtra()">
+   Cerca  <input class="searchBox" placeholder="Ricerca" maxlength="9" size="9" type="text" [(ngModel)]="cerca" (keyup)="filtra()">
   </span>
 
 
@@ -46,12 +48,15 @@
           <span class="iteminfo" *ngIf="offersDate < prod.dataScadenza ">Prezzo Unitario: <b>{{prod.prezzoUnitario | number : '1.2-2'}} €</b><br></span>
           <span class="iteminfo" *ngIf="offersDate > prod.dataScadenza && dateNow < prod.dataScadenza">Prezzo Unitario: <span class="oferta">{{prod.prezzoUnitario | number : '1.2-2'}}</span> <b>{{prod.prezzoUnitario * 0.7 | number : '1.2-2'}} €</b></span>
           <span class="iteminfo" *ngIf="ddNow < prod.dataScadenza && dddNow > prod.dataScadenza">Prezzo Unitario: <span class="oferta">{{prod.prezzoUnitario | number : '1.2-2'}}</span> <b>{{prod.prezzoUnitario * 0.3 | number : '1.2-2'}} €</b><br></span>
-          <span class="iteminfo">Disponibilità: {{prod.quantita}}kg</span><br>
+          <span class="iteminfo" *ngIf="prod.unita =='LITRO'">Disponibilità: {{prod.quantita}} L<br></span>
+          <span class="iteminfo" *ngIf="prod.unita == 'CHILO'">Disponibilità: {{prod.quantita}} Kg<br></span>
+          <span class="iteminfo" *ngIf="prod.unita == 'GRAMMO'">Disponibilità: {{prod.quantita}} g<br></span>
+          <span class="iteminfo" *ngIf="prod.unita == 'PEZZO'">Disponibilità: {{prod.quantita}} Articoli<br></span>
           <span class="iteminfo" *ngIf="prod.offerta===true">offerta - {{prod.sconto}}%<br></span>
           <span class="offertaWrap"></span>
           <span class="terminato" *ngIf="prod.quantita==0">TERMINATO</span>
           <span class="disponibile" *ngIf="prod.quantita>0"></span>
-          <span class="addCarrello" *ngIf="prod.quantita>0" (click)="aggiungiAlCarrello(prod)"><img src="http://download.seaicons.com/icons/custom-icon-design/flatastic-4/512/Shopping-cart-add-icon.png"> </span>
+          <span class="addCarrello" *ngIf="prod.quantita>0" (click)="aggiungiAlCarrello(prod)"><img src="../../assets/images/shopping.png"> </span>
         </div>
       </div>
       <div class="ribbon" *ngIf="prod.offerta===true&&prod.quantita>0"><span>OFFERTA!</span></div>

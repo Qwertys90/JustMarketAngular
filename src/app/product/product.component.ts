@@ -26,6 +26,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
   }
+  selectedValue: string;
   filtroOffers=false;
   filtroDisponibili=false;
   prezzoMinimo;
@@ -44,6 +45,7 @@ export class ProductComponent implements OnInit {
         prod.dataScadenza = new Date(prod.dataScadenza);
       }
       this.listProdTotale.filter(prod => prod.offerta===true && prod.dataScadenza >= this.ddNow);
+      console.log(this.listProdTotale)
     });
   }
 
