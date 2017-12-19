@@ -19,8 +19,6 @@ export class UserProfileComponent implements OnInit {
   constructor(private transService: TransazioneService, private creditCardService: CreditCardService, private loginServ: LoginService,
               private _sharedService: SharedService, private router: Router) {
     this.getUser()
-
-
     this.getAllTransazioni();
     this.getAllCreditCard();
   }
@@ -93,6 +91,7 @@ export class UserProfileComponent implements OnInit {
   modificaUsername(){
 
     this.user.username=this.username
+    console.log(this.user)
     this.loginServ.modifica(this.user).subscribe(()=> {
       localStorage.removeItem('user');
       localStorage.removeItem('token');
@@ -154,6 +153,7 @@ export class UserProfileComponent implements OnInit {
 
   getUser(){
     this.loginServ.dettagli().subscribe( d => {
+      console.log(d)
       this.user=<User>d
       this.cognome=this.user.cognome
       this.nome=this.user.nome

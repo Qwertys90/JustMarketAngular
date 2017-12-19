@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {BACKEND_URL} from "../../util";
+import {User} from '../models/user';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -29,7 +30,7 @@ export class LoginService {
   }
 
   dettagli(){
-    return this.http.get( BACKEND_URL + '/userdetails', httpOptions );
+    return this.http.get<User>( BACKEND_URL + '/userdetails', httpOptions );
   }
 
   isLog(){
