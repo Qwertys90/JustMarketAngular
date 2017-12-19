@@ -56,4 +56,13 @@ select, option:focus{
   color:#8f0808;
 }
 
+mat-form-field {
+  position: relative;
+  width: 40px;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: large;
+  color: #FFFFFF;
+}
 

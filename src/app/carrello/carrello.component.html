@@ -9,17 +9,20 @@
     <span class="lista" *ngIf="carrello.length==0">Non ci sono prodotti nel carrello</span>
   </div>
   <div style="padding-top: 10px;" *ngFor="let prod of carrello">
+    <mat-form-field class="example-margin">
+      <input matInput type="number" (change)="aggiorna()" [(ngModel)]="prod.quantitaDaAcquistare">
+    </mat-form-field>
     <span *ngIf="offersDate < prod.dataScadenza ">
-    <span class="lista" >{{prod.quantitaDaAcquistare}} x {{prod.nome}} </span><span class="lista pull-right"> {{prod.quantitaDaAcquistare*prod.prezzoUnitario | number : '1.2-2'}}€ </span><span
-    class="glyphicon glyphicon-trash trash pull-left" (click)="deleteCarrello()"></span></span>
+    <span class="lista" > x {{prod.nome}} </span><span class="lista pull-right"> {{prod.quantitaDaAcquistare*prod.prezzoUnitario | number : '1.2-2'}}€ </span><span
+    class="glyphicon glyphicon-trash trash pull-left" (click)="deleteCarrello(prod)"></span></span>
 
     <span *ngIf="offersDate > prod.dataScadenza && dateNow < prod.dataScadenza">
-    <span class="lista" >{{prod.quantitaDaAcquistare}} x {{prod.nome}} </span><span class="lista pull-right"> {{prod.quantitaDaAcquistare*(prod.prezzoUnitario*0.7) | number : '1.2-2'}}€ </span><span
-    class="glyphicon glyphicon-trash trash pull-left" (click)="deleteCarrello()"></span></span>
+    <span class="lista" > x {{prod.nome}} </span><span class="lista pull-right"> {{prod.quantitaDaAcquistare*(prod.prezzoUnitario*0.7) | number : '1.2-2'}}€ </span><span
+    class="glyphicon glyphicon-trash trash pull-left" (click)="deleteCarrello(prod)"></span></span>
 
     <span *ngIf="dateNow.getDay() == prod.dataScadenza.getDay() && dddNow.getMonth() == prod.dataScadenza.getMonth() && dddNow.getFullYear() == prod.dataScadenza.getFullYear()  ">
-    <span class="lista">{{prod.quantitaDaAcquistare}} x {{prod.nome}} </span><span class="lista pull-right"> {{prod.quantitaDaAcquistare*(prod.prezzoUnitario*0.3) | number : '1.2-2'}}€ </span><span
-    class="glyphicon glyphicon-trash trash pull-left" (click)="deleteCarrello()"></span></span>
+    <span class="lista"> x {{prod.nome}} </span><span class="lista pull-right"> {{prod.quantitaDaAcquistare*(prod.prezzoUnitario*0.3) | number : '1.2-2'}}€ </span><span
+    class="glyphicon glyphicon-trash trash pull-left" (click)="deleteCarrello(prod)"></span></span>
   </div>
 
   <hr style="width:80%; border-top: 2px solid #fff;padding: 2px 2px 2px 2px;">

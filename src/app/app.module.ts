@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
-  MatCardModule, MatCheckboxModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatInputModule, MatRadioModule, MatSelectModule,
-  MatSidenavModule,
+  MatCardModule, MatCheckboxModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatInputModule,
+  MatRadioModule, MatSelectModule,
+  MatSidenavModule, MatSliderModule,
   MatSlideToggleModule
 } from '@angular/material';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -58,7 +59,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MatRadioModule,
     MatCheckboxModule,
     NouisliderModule,
-    Ng2PageScrollModule
+    Ng2PageScrollModule,
+    MatSliderModule
   ],
   providers: [
     LoginService,

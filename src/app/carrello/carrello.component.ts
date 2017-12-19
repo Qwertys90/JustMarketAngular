@@ -97,6 +97,7 @@ export class CarrelloComponent implements OnInit {
   deleteCarrello(product: Prodotto) {
     this.prezzoTotale = 0;
     this.getCarrello();
+    console.log(product);
     this.carrello.splice(this.carrello.indexOf(product), 1);
     localStorage.setItem('carrello', JSON.stringify(this.carrello));
     this.getCarrello();
@@ -163,5 +164,16 @@ export class CarrelloComponent implements OnInit {
 
     })
   }
+
+  aggiorna(prod: Prodotto){
+    for (let prod of this.carrello){
+      if(prod.quantitaDaAcquistare == 0){
+        this.deleteCarrello(prod);
+      }
+    }
+    localStorage.setItem('carrello', JSON.stringify(this.carrello));
+    this.getCarrello();
+    }
+
 }
 
