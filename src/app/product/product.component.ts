@@ -20,13 +20,12 @@ export class ProductComponent implements OnInit {
   dateNow= new Date();
   constructor(private prodServ: ProductService, private _sharedService: SharedService) {
 
-    this.getAll()
+    this.getAll();
 
   }
 
   ngOnInit() {
   }
-  selectedValue: string;
   filtroOffers=false;
   filtroDisponibili=false;
   prezzoMinimo;
@@ -101,4 +100,5 @@ export class ProductComponent implements OnInit {
     localStorage.setItem('carrello',JSON.stringify(this.listaProdottiCarrello));
     this._sharedService.emitChange('logged=true');
   }
+
 }

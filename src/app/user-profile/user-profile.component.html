@@ -60,8 +60,8 @@
       <div class="creditCard">
         <div><input [(ngModel)]="creditCard.cognome"><br></div>
         <div><input [(ngModel)]="creditCard.nome"><br></div>
-        <div><input [(ngModel)]="creditCard.numeroCarta"><br></div>
-        <div><input [(ngModel)]="creditCard.cvv"><br></div>
+        <div><input [(ngModel)]="creditCard.numeroCarta" pattern="(?:\d[-]*?){13,16}"><br></div>
+        <div><input [(ngModel)]="creditCard.cvv" pattern="([0-9]{3})"><br></div>
         <div><input [(ngModel)]="creditCard.scadenza"></div>
       </div>
       <div class="submit">
@@ -139,7 +139,7 @@
         <div>username: <br></div>
       </div>
       <div class="creditCard">
-        <div><input [(ngModel)]="username"></div>
+        <div><input [(ngModel)]="username" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])"></div>
       </div>
       <div class="submit">
         <button type="submit" class="btn btn-large btn-danger" (click)="modificaUsername()">Modifica Username</button>

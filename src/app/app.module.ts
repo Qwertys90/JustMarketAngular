@@ -9,7 +9,7 @@ import {
   MatCardModule, MatCheckboxModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatInputModule,
   MatRadioModule, MatSelectModule,
   MatSidenavModule, MatSliderModule,
-  MatSlideToggleModule
+  MatSlideToggleModule, MatGridListModule
 } from '@angular/material';
 import { HomepageComponent } from './homepage/homepage.component';
 import {Ng2CarouselamosModule} from 'ng2-carouselamos';
@@ -60,7 +60,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MatCheckboxModule,
     NouisliderModule,
     Ng2PageScrollModule,
-    MatSliderModule
+    MatSliderModule,
+    MatGridListModule
   ],
   providers: [
     LoginService,

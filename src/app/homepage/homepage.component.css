@@ -242,3 +242,7 @@
   -o-transform:rotate(-5deg);
   transform:rotate(-5deg);
 }
+mat-grid-tile {
+  background: lightblue;
+  font-size: large;
+}
