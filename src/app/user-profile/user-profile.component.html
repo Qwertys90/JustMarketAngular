@@ -100,24 +100,29 @@
       <div class="creditCard nomicampi">
         <div>Cognome: <br></div>
         <div>Nome: <br></div>
-        <div>Numero Carta: <br></div>
-        <div>CVV: <br></div>
-        <div>Scadenza(mm/aa):</div>
+        <div>Provincia: <br></div>
+        <div>Città: <br></div>
+        <div>Via / Piazza: <br></div>
+        <div>Cap: </div>
+        <div>Cellulare: </div>
       </div>
       <div class="creditCard">
-        <div><input [(ngModel)]="creditCard.cognome"><br></div>
-        <div><input [(ngModel)]="creditCard.nome"><br></div>
-        <div><input [(ngModel)]="creditCard.numeroCarta"><br></div>
-        <div><input [(ngModel)]="creditCard.cvv"><br></div>
-        <div><input [(ngModel)]="creditCard.scadenza"></div>
+        <div><input [(ngModel)]="cognome"><br></div>
+        <div><input [(ngModel)]="nome"><br></div>
+        <div><input [(ngModel)]="provincia"><br></div>
+        <div><input [(ngModel)]="citta"><br></div>
+        <div><input [(ngModel)]="via"></div>
+        <div><input [(ngModel)]="cap"></div>
+        <div><input [(ngModel)]="cellulare"></div>
       </div>
       <div class="submit">
-        <button type="submit" class="btn btn-large btn-danger" (click)="saveCarta()">Inserisci Carta</button>
+        <button type="submit" class="btn btn-large btn-danger" (click)="modificaRecapiti()">Modifica Dati</button>
       </div>
     </div>
     <!--fine inserimento carta-->
   </mat-expansion-panel>
 <!-- fine dati personali-->
+
 
   <!--username-->
   <mat-expansion-panel (opened)="panelOpenState = true"
@@ -129,7 +134,17 @@
       <mat-panel-description>
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
+    <div class="formInserimento">
+      <div class="creditCard nomicampi">
+        <div>username: <br></div>
+      </div>
+      <div class="creditCard">
+        <div><input [(ngModel)]="username"></div>
+      </div>
+      <div class="submit">
+        <button type="submit" class="btn btn-large btn-danger" (click)="modificaUsername()">Modifica Username</button>
+      </div>
+    </div>
   </mat-expansion-panel>
   <!-- fine username-->
 
@@ -144,7 +159,20 @@
       <mat-panel-description>
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
+    <div class="formInserimento">
+      <div class="creditCard nomicampi">
+        <div>Nuova password: <br></div>
+        <div>Ripeti password: <br></div>
+      </div>
+      <div class="creditCard">
+        <div><input type=password [(ngModel)]="password"></div>
+        <div><input type=password [(ngModel)]="password2"></div>
+
+      </div>
+      <div class="submit">
+        <button type="submit" class="btn btn-large btn-danger" (click)="modificaPassword()">Modifica Password</button>
+      </div>
+    </div>
   </mat-expansion-panel>
   <!-- fine password-->
 </mat-expansion-panel>
