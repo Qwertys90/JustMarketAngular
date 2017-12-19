@@ -41,6 +41,10 @@ export class AppComponent {
       console.log(text);
       if(text=="login")
       this.logged = true;
+      if(text=="sloggare") {
+        this.userLogged = new User
+        this.logged = false;
+      }
     });
 
   }

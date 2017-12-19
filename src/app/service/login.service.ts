@@ -20,6 +20,10 @@ export class LoginService {
     return this.http.post(BACKEND_URL + '/register', user, httpOptions);
   }
 
+  modifica(user){
+    return this.http.post(BACKEND_URL + '/modifica', user, httpOptions);
+  }
+
   logout(){
     return this.http.get(BACKEND_URL + '/logoutApp', {responseType: 'text'});
   }
