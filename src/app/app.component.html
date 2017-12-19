@@ -51,22 +51,12 @@
         <a class="navbar-brand" href="#">Just Market</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li class="active"><a routerLink="/homepage">Homepage</a></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Prova 1-1</a></li>
-              <li><a href="#">Prova 1-2</a></li>
-              <li><a href="#">Prova 1-3</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Prova 2</a></li>
-          <li><a href="#">Prova 3</a></li>
-        </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a routerLink="/register"><span class="glyphicon glyphicon-user" ></span> Registrati</a></li>
-          <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in" ></span> Accedi</a></li>
+          <li><a (click)="sidenav.toggle()"><span class="glyphicon glyphicon-shopping-cart" ></span> Carrello</a></li>
+          <li><a *ngIf="!logged" routerLink="/register"><span class="glyphicon glyphicon-user" ></span> Registrati</a></li>
+          <li><a *ngIf="!logged" routerLink="/login"><span class="glyphicon glyphicon-log-in" ></span> Accedi</a></li>
+          <li><a *ngIf="logged" routerLink="/profile"><span class="glyphicon glyphicon-user" ></span> Benvenuto, {{userLogged.nome}}</a></li>
+          <li><a *ngIf="logged" (click)="logout()"><span class="glyphicon glyphicon-log-in" ></span> Log-out</a></li>
         </ul>
       </div>
     </div>
@@ -112,7 +102,6 @@
       </div>
       <div class="clearfix"> </div>
     </div>
-
   </div>
 </div>
     </mat-sidenav-content>

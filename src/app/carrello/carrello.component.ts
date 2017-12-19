@@ -95,10 +95,19 @@ export class CarrelloComponent implements OnInit {
   }
 
   deleteCarrello(product: Prodotto) {
-    this.prezzoTotale = 0;
-    this.getCarrello();
-    console.log(product);
-    this.carrello.splice(this.carrello.indexOf(product), 1);
+    this.prezzoTotale = 0
+    this.getCarrello()
+    console.log(product)
+    let index=0;
+     let cacca: number =0
+    for(let x of this.carrello){
+
+      if(product.id==x.id){
+        index=cacca;
+      }
+        cacca++
+    }
+    this.carrello.splice(index, 1);
     localStorage.setItem('carrello', JSON.stringify(this.carrello));
     this.getCarrello();
   }
@@ -165,10 +174,12 @@ export class CarrelloComponent implements OnInit {
     })
   }
 
-  aggiorna(prod: Prodotto){
+  aggiorna(){
     for (let prod of this.carrello){
       if(prod.quantitaDaAcquistare == 0){
         this.deleteCarrello(prod);
+        console.log(prod)
+        break
       }
     }
     localStorage.setItem('carrello', JSON.stringify(this.carrello));
