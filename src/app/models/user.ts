@@ -1,4 +1,5 @@
 import {CreditCard} from './creditcard';
+import {Transazione} from './transazione';
 
 export class User{
   id?: number;
@@ -12,4 +13,6 @@ export class User{
   username: string;
   password: string;
   tipo:string;
+  listaCreditCard:Array<CreditCard>;
+  transazioni:Array<Transazione>;
 }
