@@ -3,6 +3,7 @@ import {ProductService} from '../service/product.service';
 import {Prodotto} from '../models/prodotto';
 import {SharedService} from "../service/shared.service";
 import swal from 'sweetalert2';
+import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
@@ -11,6 +12,7 @@ import swal from 'sweetalert2';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+  categoria: any;
   listProd: Array<Prodotto> = [];
   listProdTotale: Array<Prodotto> = [];
   listaProdottiCarrello: Array<Prodotto> = [];
@@ -18,8 +20,9 @@ export class ProductComponent implements OnInit {
   ddNow = new Date();
   dddNow = new Date();
   dateNow= new Date();
-  constructor(private prodServ: ProductService, private _sharedService: SharedService) {
 
+  constructor(private prodServ: ProductService, private _sharedService: SharedService, private router: ActivatedRoute) {
+    this.router.params.subscribe(d=> this.categoria = d);
     this.getAll();
 
   }
@@ -43,13 +46,23 @@ export class ProductComponent implements OnInit {
       for (let prod of this.listProdTotale){
         prod.dataScadenza = new Date(prod.dataScadenza);
       }
-      this.listProdTotale.filter(prod => prod.offerta===true && prod.dataScadenza >= this.ddNow);
+      this.listProdTotale.filter(prod => prod.dataScadenza >= this.ddNow);
       console.log(this.listProdTotale)
+      this.filtra()
     });
   }
 
   filtra(){
     this.listProd=this.listProdTotale;
+    console.log(this.categoria.categoria)
+    if(this.categoria.categoria == 'ALIMENTARI')
+      this.listProd = this.listProd.filter(prod => prod.categoria == 'ALIMENTARI');
+    if(this.categoria.categoria == 'PRODOTTICASA')
+      this.listProd = this.listProd.filter(prod=> prod.categoria == 'PRODOTTICASA');
+    if(this.categoria.categoria == 'BEAUTY')
+      this.listProd = this.listProd.filter(prod=> prod.categoria == 'BEAUTY');
+    if(this.categoria.categoria == 'ANIMALI')
+      this.listProd = this.listProd.filter(prod=> prod.categoria == 'ANIMALI');
     if(this.filtroOffers)
     this.listProd = this.listProd.filter(prod => prod.offerta===true);
     if(this.filtroDisponibili)
@@ -64,7 +77,6 @@ export class ProductComponent implements OnInit {
       this.listProd = this.listProd.filter(prod =>
         prod.marca.toLowerCase().includes(this.cerca.toLowerCase())||prod.nome.toLowerCase().includes(this.cerca.toLowerCase())
       );
-
   }
 
   aggiungiAlCarrello(prod:Prodotto) {
