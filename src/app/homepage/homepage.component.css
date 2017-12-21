@@ -4,7 +4,7 @@
 }
 
 .offersItem {
-  height: 300px;
+  height: 340px;
   padding: 5px;
   background-color: #ffffff;
 
@@ -243,6 +243,41 @@
   transform:rotate(-5deg);
 }
 mat-grid-tile {
-  background: lightblue;
-  font-size: large;
+  background-color: white;
+  font-size: 30px;
+  font-weight: 800;
+  color: white;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.grid1{
+  background-image: url("../../assets/images/alimentari.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center ;
+  cursor: pointer;
+}
+
+.grid2{
+  background-image: url("../../assets/images/casl.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center ;
+  cursor: pointer;
+}
+
+.grid3{
+  background-image: url("../../assets/images/corpo.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center ;
+  cursor: pointer;
+}
+
+.grid4{
+  background-image: url("../../assets/images/cibo_per_cani.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center ;
+  cursor: pointer;
 }
