@@ -37,7 +37,7 @@
           <span class="iteminfo" *ngIf="prod.unita == 'PEZZO'">Disponibilità: {{prod.quantita}} Articoli<br></span>
           <span class="iteminfo" *ngIf="prod.offerta===true">offerta - {{prod.sconto}}%<br></span>
           <span class="offertaWrap"></span>
-          <span class="terminato" *ngIf="prod.quantita==0">TERMINATO</span>
+          <span class="terminato" *ngIf="prod.quantita<=0">TERMINATO</span>
           <span class="disponibile" *ngIf="prod.quantita>0"></span>
           <span class="addCarrello" *ngIf="prod.quantita>0" (click)="aggiungiAlCarrello(prod)"><img
             src="http://download.seaicons.com/icons/custom-icon-design/flatastic-4/512/Shopping-cart-add-icon.png"> </span>

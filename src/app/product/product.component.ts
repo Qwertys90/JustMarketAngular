@@ -24,6 +24,13 @@ export class ProductComponent implements OnInit {
   constructor(private prodServ: ProductService, private _sharedService: SharedService, private router: ActivatedRoute) {
     this.router.params.subscribe(d=> this.categoria = d);
     this.getAll();
+    _sharedService.changeEmitted$.subscribe(text => {
+      console.log("tete")
+      if(text=="comprato") {
+        this.getAll()
+      }
+    })
+
 
   }
 

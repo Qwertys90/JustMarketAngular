@@ -8,7 +8,11 @@ export class ProductService {
   constructor(private http:HttpClient) { }
 
  getAll(){
-    return this.http.get<Array<any>>(BACKEND_URL + '/prodotti/getall')
+    return this.http.get<Array<any>>(BACKEND_URL + '/prodotti/getall');
+ }
+
+ getById(id){
+   return this.http.get(BACKEND_URL + '/prodotti/getbyid/'+id);
  }
 
 }

@@ -51,6 +51,6 @@
     </select>
   </div>
   <div style="padding-top: 20px;">
-    <button class="CheckOut" (click)="buyCarrello()" *ngIf="logged">CHECKOUT</button>
+    <button class="CheckOut" (click)="buyCarrello()" *ngIf="logged && carrello.length > 0">CHECKOUT</button>
   </div>
 </div>
